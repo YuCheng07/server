@@ -20,7 +20,11 @@ const updateName = require('./src/routes/update-name');
 const userDecks = require('./src/routes/userDecks');
 const userPosts = require('./src/routes/userPosts');
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://fateborne.ltd',  // 指定允許的源
+  methods: 'GET,POST,PUT,DELETE',              // 允許的請求方法
+  allowedHeaders: 'Content-Type',   // 允許的請求頭
+}));
 
 // middleware
 app.use(express.json());
